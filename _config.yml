@@ -7,9 +7,9 @@ url:              http://www.quickbegin.net
 # Owner/author information
 owner:
   name:           Lu Jianmei
-  avatar:         bio-photo.jpg
-  bio:            "Hossain Mohammad Faysal is an Electrical Engineer and a Mathematician based in Doha, Qatar. His interests are anything that’s related to math, from math itself to programming languages to music to physics to engineering to philosophy."
-  email:          hmfaysal@gmail.com
+  avatar:         my_sons.png
+  bio:            ""
+  email:          anysky133@163.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   # To register at HMFAYSAL SOCIAL, visit http://social.hmfaysal.tk
   twitter:        
@@ -19,15 +19,16 @@ owner:
   instagram:      
   lastfm:         
   tumblr:         
-  hmfaysalsocial: hmfaysal
+  hmfaysalsocial: 
   # For Google Authorship https://plus.google.com/authorship
   google_plus:    
 
 # Analytics and webmaster tools stuff goes here
-#google_analytics:   UA-39365944-4
+google_analytics:   UA-33406092-2
 #google_verify:      
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:        
+bing_verify:   
+baidu_analytics:   true    
 
 # Links to include in top navigation
 # For external links add external: true
@@ -38,8 +39,6 @@ links:
     url: /about/
   - title: Articles
     url: /articles/
-  - title: Setup
-    url: /theme-setup/
   - title: T-Details
     url: /technical-details/
   - title: The Evil-Genius
