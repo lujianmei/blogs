@@ -41,9 +41,9 @@ links:
     url: /articles/
   - title: T-Details
     url: /technical-details/
-  - title: The Evil-Genius
-    url: http://www.theevilgenius.tk/
-    external: true
+#  - title: The Evil-Genius
+#    url: http://www.theevilgenius.tk/
+#    external: true
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/New_York
