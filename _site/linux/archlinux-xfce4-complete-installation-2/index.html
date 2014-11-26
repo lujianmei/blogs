@@ -1,0 +1,283 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Archlinux 2014 + Xfce4完整安装(二) &#8211; Develop on Linux</title>
+<meta name="description" content="从头开始安装archlinux 2014-11-20 版本， 使用xfce做为桌面应用，并完整配置显卡驱动，声卡驱动，有线及无线网络配置">
+<meta name="keywords" content="Archlinux2014, xfce4, 显卡驱动, 声卡驱动, 有线网络配置, 无线网络配置">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Archlinux 2014 + Xfce4完整安装(二)">
+<meta property="og:description" content="从头开始安装archlinux 2014-11-20 版本， 使用xfce做为桌面应用，并完整配置显卡驱动，声卡驱动，有线及无线网络配置">
+<meta property="og:url" content="http://localhost:4000/linux/archlinux-xfce4-complete-installation-2">
+<meta property="og:site_name" content="Develop on Linux">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-2">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Develop on Linux Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+
+<script src="http://localhost:4000/assets/js/modernizr.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div id="outer-wrap">
+<div id="inner-wrap">
+
+    <header id="top" role="banner">
+        <div class="block">
+            <h1 class="block-title">Develop on Linux</h1>
+            <a class="nav-btn" id="nav-open-btn" href="#nav">Navigation</a>
+        </div>
+    </header>
+
+    <nav id="nav" role="navigation">
+        <div class="block">
+            <h2 class="block-title">Chapters</h2>
+            <ul>
+                
+				<li><a href="http://localhost:4000/" >Home</a></li>
+		        
+				<li><a href="http://localhost:4000/about/" >About</a></li>
+		        
+				<li><a href="http://localhost:4000/linux/" >Linux</a></li>
+		        
+				<li><a href="http://localhost:4000/server-side/" >Server-side</a></li>
+		        
+				<li><a href="http://localhost:4000/client-side/" >Client-side</a></li>
+		        
+		        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+            </ul>
+            <a class="close-btn" id="nav-close-btn" href="#top">Return to Content</a>
+        </div>
+    </nav>
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <div class="article-author-side">
+    <img src="http://localhost:4000/images/my_sons.png" class="bio-photo" alt="Lu Jianmei bio photo"></a>
+<h3>Lu Jianmei</h3>
+<p></p>
+
+
+
+
+
+
+<a href="http://github.com/lujianmei" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Archlinux 2014 + Xfce4完整安装(二)</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p><a href="https://www.archlinux.org/">Archlinux 2014</a> is a linux distribution whis is a lightweight and flexible Linux® distribution that tries to Keep It Simple. This is a document that complete install and config all base function from the beginning.</p>
+
+<h3 id="fcitx">配置中文，及中文输入法fcitx</h3>
+
+<ol>
+  <li>添加locale中文支持：</li>
+</ol>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">vi</span> <span class="o">/</span><span class="nt">etc</span><span class="o">/</span><span class="nt">locale</span><span class="nc">.gen</span></code></pre></div>
+
+<p>确保<code>en_US.UTF-8 UTF-8</code>与<code>zh_CN.UTF-8 UTF-8</code>取消注释
+然后执行locale-gen命令</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">locale-gen</span></code></pre></div>
+
+<ol>
+  <li>安装中文字体</li>
+</ol>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">wqy-microhei</span> <span class="nt">wqy-microhei-lite</span> <span class="nt">wqy-bitmapfont</span> <span class="nt">wqy-zenhei</span> <span class="nt">ttf-arphic-ukai</span> <span class="nt">ttf-arphic-uming</span></code></pre></div>
+
+<ol>
+  <li>安装字体管理器</li>
+</ol>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">fontconfig</span></code></pre></div>
+
+<p>执行命令检查当前系统中中文字体安装情况：</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">fc-list</span> <span class="o">:</span> <span class="nt">lang</span><span class="o">=</span><span class="nt">zh</span></code></pre></div>
+
+<p>发现一个中文字体都没有，因为需要对字体进行再配置；
+4. 安装输入法</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">fcitx</span> <span class="nt">fcitx-im</span> <span class="nt">fcitx-configtool</span> <span class="nt">fcitx-sunpinyin</span> <span class="nt">fcitx-table-extra</span> <span class="nt">kcm-fcitx</span> <span class="nt">fcitx-ui-light</span> <span class="nt">fcitx-table-extra</span> <span class="nt">fcitx-table-other</span> <span class="nt">fcitx-googlepinyi</span></code></pre></div>
+
+<p>安装完成后，执行fcitx命令可以启动输入法管理器；然后进行手工配置自己喜欢的输入法；
+将<code>fcitx &amp;</code>加入<code>~/.bash-profile</code>文件中；</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">vi</span> <span class="o">~/</span><span class="nc">.bash-profile</span></code></pre></div>
+
+<ol>
+  <li>终端下显示中文工具
+添加全局语言定义，添加在<code>/etc/profile</code>文件中</li>
+</ol>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">export</span> <span class="nt">LANG</span><span class="o">=</span><span class="nt">en_US</span><span class="nc">.UTF-8</span>
+<span class="nt">export</span> <span class="nt">LANGUAGE</span><span class="o">=</span><span class="nt">en_US</span><span class="nd">:UTF-8</span>
+<span class="nt">export</span> <span class="nt">LC_CTYPE</span><span class="o">=</span><span class="nt">zh_CN</span><span class="nc">.UTF-8</span></code></pre></div>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/my_sons.png" class="bio-photo" alt="Lu Jianmei bio photo"></a>
+<h3>Lu Jianmei</h3>
+<p></p>
+
+
+
+
+
+
+<a href="http://github.com/lujianmei" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Archlinux 2014 + Xfce4完整安装(二)</strong> was published on <time datetime="2014-11-02T00:00:00-04:00" itemprop="datePublished">November 02, 2014</time> by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href="http://localhost:4000/about" title="About Lu Jianmei" itemprop="url">Lu Jianmei</a></span></span>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+
+  <!--  <nav class="pagination" role="navigation">
+        
+            <a href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-1" class="btn" title="Archlinux 2014 + Xfce4完整安装(一)">Previous article</a>
+        
+        
+            <a href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-3" class="btn" title="Archlinux 2014 + Xfce4完整安装(三)">Next article</a>
+        
+    </nav>-->
+
+<!-- /.pagination -->
+  </article>
+
+</div><!-- /#main -->
+
+
+
+<div class="footer-wrap">
+
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/linux">View all Linux articles</a>)</small></h4>
+    <ul>
+    
+      
+      
+        
+          
+        
+      
+      
+      <li><a href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-4" title="Archlinux 2014 + Xfce4完整安装(四)">Archlinux 2014 + Xfce4完整安装(四)</a></li>
+      
+    
+      
+      
+        
+          
+        
+      
+      
+      <li><a href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-3" title="Archlinux 2014 + Xfce4完整安装(三)">Archlinux 2014 + Xfce4完整安装(三)</a></li>
+      
+    
+      
+      
+        
+          
+        
+      
+      
+      <li><a href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-1" title="Archlinux 2014 + Xfce4完整安装(一)">Archlinux 2014 + Xfce4完整安装(一)</a></li>
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Lu Jianmei. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://www.theevilgenius.tk/">HMFAYSAL V2</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="http://localhost:4000/assets/js/plugins/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script src="http://localhost:4000/assets/js/main.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-33406092-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc4458b325b81126e5d016a4a668a7838' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+	        
+
+</body>
+</html>

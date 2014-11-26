@@ -1,0 +1,397 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Archlinux 2014 + Xfce4完整安装(三) &#8211; Develop on Linux</title>
+<meta name="description" content="从头开始安装archlinux 2014-11-20 版本， 使用xfce做为桌面应用，并完整配置显卡驱动，声卡驱动，有线及无线网络配置">
+<meta name="keywords" content="Archlinux2014, xfce4, 显卡驱动, 声卡驱动, 有线网络配置, 无线网络配置">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Archlinux 2014 + Xfce4完整安装(三)">
+<meta property="og:description" content="从头开始安装archlinux 2014-11-20 版本， 使用xfce做为桌面应用，并完整配置显卡驱动，声卡驱动，有线及无线网络配置">
+<meta property="og:url" content="http://localhost:4000/linux/archlinux-xfce4-complete-installation-3">
+<meta property="og:site_name" content="Develop on Linux">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-3">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Develop on Linux Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+
+<script src="http://localhost:4000/assets/js/modernizr.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div id="outer-wrap">
+<div id="inner-wrap">
+
+    <header id="top" role="banner">
+        <div class="block">
+            <h1 class="block-title">Develop on Linux</h1>
+            <a class="nav-btn" id="nav-open-btn" href="#nav">Navigation</a>
+        </div>
+    </header>
+
+    <nav id="nav" role="navigation">
+        <div class="block">
+            <h2 class="block-title">Chapters</h2>
+            <ul>
+                
+				<li><a href="http://localhost:4000/" >Home</a></li>
+		        
+				<li><a href="http://localhost:4000/about/" >About</a></li>
+		        
+				<li><a href="http://localhost:4000/linux/" >Linux</a></li>
+		        
+				<li><a href="http://localhost:4000/server-side/" >Server-side</a></li>
+		        
+				<li><a href="http://localhost:4000/client-side/" >Client-side</a></li>
+		        
+		        <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+            </ul>
+            <a class="close-btn" id="nav-close-btn" href="#top">Return to Content</a>
+        </div>
+    </nav>
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <div class="article-author-side">
+    <img src="http://localhost:4000/images/my_sons.png" class="bio-photo" alt="Lu Jianmei bio photo"></a>
+<h3>Lu Jianmei</h3>
+<p></p>
+
+
+
+
+
+
+<a href="http://github.com/lujianmei" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Archlinux 2014 + Xfce4完整安装(三)</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p><a href="https://www.archlinux.org/">Archlinux 2014</a> is a linux distribution whis is a lightweight and flexible Linux® distribution that tries to Keep It Simple. This is a document that complete install and config all base function from the beginning.</p>
+
+<h3 id="section">桌面环境介绍</h3>
+
+<p>安装桌面程序前需要先明白几个模块：
+* 显示服务：
+linux图形界面的运行都是采用c/s架构组成，即显示通过后端的服务的方式运行；当前有两个：X11与Wayland，X11诞生于1987年，而Wayland是当前新的桌面环境，还不是很成熟，因此现在使用的依然是X11做为界面服务提供；
+而Xorg即是它的开源实现，因此<code>xorg-server</code>负责提供产品管理系统服务端，安装所有桌面都需要安装它</p>
+
+<ul>
+  <li>
+    <p>显卡驱动与键盘鼠标驱动：
+显示成桌面后，需要支持显卡与键盘鼠标操作，因此这几个驱动是必须的，而如果是笔记本的话，可以再加上笔记本的触摸板驱动；</p>
+  </li>
+  <li>
+    <p>桌面环境
+Xorg只提供图形环境的基本框架，完整的用户体验还需要其他组件。 桌面环境(DE): 在X之上并与其共同运作，提供完整的功能和动态图形界面。桌面环境通常提供图标、小程序（applets）、窗口、工具栏、文件夹、壁纸、应用程序和拖放等功能。使用GNOME、KDE、LXDE、Xfce这类桌面环境。
+安装完成后需要对xinitrc文件进行相应的配置，来达到启动对应的桌面环境的目的；</p>
+  </li>
+  <li>
+    <p>显示管理器
+显示管理器是用于在操作系统启动时，能自动启动对应的桌面环境，如<code>lightDM/slim for xfce, XDM for xorg, GDM for GNOME, KDM for KDE</code>
+当然如果不安装显示管理器，也可以通过命令启动操作系统的桌面环境，如：
+手动在命令行输入：<code>startx</code>则可以启动，而startx启动是去检查<code>~/.xinitrc</code>或者<code>/etc/X11/xinit/xinitrc</code>文件里的启动脚本；</p>
+  </li>
+  <li>
+    <p>窗口管理器
+一般安装了桌面环境的会自带一个默认窗口管理器，对应各个桌面环境所使用的默认窗口管理器，可以参照：
+<a href="https://wiki.archlinux.org/index.php/Desktop_Environment_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Desktop_Environment</a>
+当然如果不想使用大的如GNOME或KDE这种大型桌面环境，可以仅仅安装窗口管理器即可，而窗口管理器则分为动态窗口管理器，堆叠式窗口管理器，平铺式窗口管理器。
+可以根据自己的需要进行选择性安装；
+安装完成后，通过与显示服务进行配置，来达到启动的目的；</p>
+  </li>
+</ul>
+
+<h3 id="section-1">桌面环境安装</h3>
+<p>上面的部分界面完成后，下面开始具体对桌面环境进行安装，这里选择xfce4来采用桌面环境，因此不再需要单独安装窗口管理器，而且将显示管理器放在最后安装，刚开始可以先通过startx命令进行桌面环境的启动；
+* 安装显示服务：</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">xorg-server</span> <span class="nt">xorg-server-utils</span> <span class="nt">xorg-utils</span> <span class="nt">mesa</span> <span class="nt">xorg-xinit</span><span class="err">；</span></code></pre></div>
+
+<p>如果是virtualbox虚拟机，还需要安装virtualbox-guest-utils</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">virtualbox-guest-utils</span>
+<span class="nt">modprobe</span> <span class="nt">-a</span> <span class="nt">vboxguest</span> <span class="nt">vboxsf</span> <span class="nt">vboxvideo</span></code></pre></div>
+
+<ul>
+  <li>显卡驱动与键盘鼠标驱动：
+安装显卡驱动，先查询是属于什么驱动：</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">lspci</span> <span class="o">|</span><span class="nt">grep</span> <span class="nt">VGA</span></code></pre></div>
+
+<p>然后根据对应的型号来选择驱动，可以查询驱动名称</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-Ss</span> <span class="nt">xf86-video</span><span class="o">|</span><span class="nt">less</span></code></pre></div>
+
+<p>而安装支持大部分显呀的通用驱动为</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">xf86-video-vesa</span></code></pre></div>
+
+<p>键盘鼠标，鼠标驱动</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-Ss</span> <span class="nt">xf86-input</span><span class="o">|</span><span class="nt">less</span>
+<span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">xf86-input-keyboard</span>
+<span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">xf86-input-mouse</span>
+<span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">xf86-input-evdev</span></code></pre></div>
+
+<ul>
+  <li>在安装桌面环境前，可以先安装使用默认xinitrc中的配置的窗口管理器，它是一个轻量级的叠加式窗口管理器，测试一下xorg的运行情况</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">xorg-twm</span> <span class="nt">xorg-xclock</span> <span class="nt">xterm</span></code></pre></div>
+
+<p>reboot重启操作系统
+然后命令行登录成功后，输入<code>startx</code>则可以进入twm桌面管理器；
+见效果图；</p>
+
+<ul>
+  <li>为了便于大家理解窗口管理器与桌面环境的区别，而且清楚其中的配置方式，我们在安装桌面环境前，再安装一个窗口管理器：openbox，然后配置出来给大家看看它的安装配置更换方式；</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">openbox</span></code></pre></div>
+
+<p>安装完成后，在<code>/etc/X11/xinit/xinitrc</code>文件后面加入启动<code>openbox</code>命令：</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">exec</span> <span class="nt">openbox-session</span></code></pre></div>
+
+<p>或者直接通过<code>xinit /usr/bin/openbox-session</code>来启动<code>openbox</code>桌面管理器；
+当启动失败时，可以在<code>/var/log/Xorg.0.log</code>中仔细检查问题并解决；</p>
+
+<ul>
+  <li>安装桌面环境：
+安装<code>xfce4</code>，加上官网wiki建议的安装<code>gamin</code></li>
+</ul>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">xfce4</span> <span class="nt">gamin</span></code></pre></div>
+
+<p>启动xfce4有两种方法：
+a. 安装完成后直接输入<code>startxfce4</code>命令进行启动；
+b. 配置xfce4的initrc启动</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">cp</span> <span class="o">/</span><span class="nt">etc</span><span class="o">/</span><span class="nt">X11</span><span class="o">/</span><span class="nt">xinit</span><span class="o">/</span><span class="nt">xinitrc</span> <span class="o">~/</span><span class="nc">.xinitrc</span></code></pre></div>
+
+<p>并在后面加上<code>exec startxfce4</code></p>
+
+<p>内容大概为：</p>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="lineno"> 1</span> <span class="err">#</span><span class="o">!/</span><span class="nt">bin</span><span class="o">/</span><span class="nt">sh</span>
+<span class="lineno"> 2</span>  
+<span class="lineno"> 3</span> <span class="nt">if</span> <span class="o">[</span> <span class="nt">-d</span> <span class="o">/</span><span class="nt">etc</span><span class="o">/</span><span class="nt">X11</span><span class="o">/</span><span class="nt">xinit</span><span class="o">/</span><span class="nt">xinitrc</span><span class="nc">.d</span> <span class="o">];</span> <span class="nt">then</span>
+<span class="lineno"> 4</span>   <span class="nt">for</span> <span class="nt">f</span> <span class="nt">in</span> <span class="o">/</span><span class="nt">etc</span><span class="o">/</span><span class="nt">X11</span><span class="o">/</span><span class="nt">xinit</span><span class="o">/</span><span class="nt">xinitrc</span><span class="nc">.d</span><span class="o">/*;</span> <span class="nt">do</span>
+<span class="lineno"> 5</span>     <span class="o">[</span> <span class="nt">-x</span> <span class="s2">&quot;$f&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">.</span> <span class="s2">&quot;$f&quot;</span>
+<span class="lineno"> 6</span>   <span class="nt">done</span>
+<span class="lineno"> 7</span>   <span class="nt">unset</span> <span class="nt">f</span>
+<span class="lineno"> 8</span> <span class="nt">fi</span>
+<span class="lineno"> 9</span>  
+<span class="lineno">10</span> <span class="nt">exec</span> <span class="nt">startxfce4</span></code></pre></div>
+
+<p>启动完成，见默认效果图：
+<img src="http://localhost:4000/images/3953273590_704e3899d5_m.jpg" alt="Smithsonian Image" /></p>
+
+<p>当启动失败时，依然可以在<code>/var/log/Xorg.0.log</code>中仔细检查问题并解决；</p>
+
+<h3 id="section-2">配置有线网络及无线网络</h3>
+<ul>
+  <li>安装有线及无线网络管理工具</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">net-tools</span> <span class="err">#有线</span>
+<span class="nt">wireless_tools</span><span class="o">,</span> <span class="nt">wpa_supplicant</span> <span class="nt">dialog</span> <span class="err">#无线</span></code></pre></div>
+
+<ul>
+  <li>安装网络界面管理工具</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pacman</span> <span class="nt">-S</span> <span class="nt">networkmanager</span><span class="o">,</span> <span class="nt">network-manager-applet</span> <span class="nt">xfce4-notifyd</span></code></pre></div>
+
+<ul>
+  <li>添加用户到 <code>network</code> 用户组：</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">gpasswd</span> <span class="nt">-a</span> <span class="nt">USERNAME</span> <span class="nt">network</span></code></pre></div>
+
+<ul>
+  <li>取消 netctl,  dhcpcd 的自动启动，然后使用networkmanager来进行管理网络</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">systemctl</span> <span class="nt">disable</span> <span class="nt">netctl</span>
+<span class="nt">systemctl</span> <span class="nt">disable</span> <span class="nt">dhcpcd</span>
+<span class="nt">systemctl</span> <span class="nt">enable</span> <span class="nt">NetworkManager</span></code></pre></div>
+
+<ul>
+  <li>删除文件<code>/etc/wpa_supplicant.conf</code>，重新生成一下</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">echo</span> <span class="s1">&#39;ctrl_interface=DIR=/run/wpa_supplicant&#39;</span> <span class="o">&gt;</span> <span class="o">/</span><span class="nt">etc</span><span class="o">/</span><span class="nt">wpa_supplicant</span><span class="nc">.conf</span></code></pre></div>
+
+<ul>
+  <li>将对应的无线的对应的SSID的密码生成到文件<code>/etc/wpa_supplicant.conf</code>中</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">wpa_passphrase</span> <span class="o">&lt;</span><span class="nt">ssid</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nt">passphrase</span><span class="o">&gt;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="nt">etc</span><span class="o">/</span><span class="nt">wpa_supplicant</span><span class="nc">.conf</span></code></pre></div>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/my_sons.png" class="bio-photo" alt="Lu Jianmei bio photo"></a>
+<h3>Lu Jianmei</h3>
+<p></p>
+
+
+
+
+
+
+<a href="http://github.com/lujianmei" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Archlinux 2014 + Xfce4完整安装(三)</strong> was published on <time datetime="2014-11-03T00:00:00-05:00" itemprop="datePublished">November 03, 2014</time> by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><a href="http://localhost:4000/about" title="About Lu Jianmei" itemprop="url">Lu Jianmei</a></span></span>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+
+  <!--  <nav class="pagination" role="navigation">
+        
+            <a href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-2" class="btn" title="Archlinux 2014 + Xfce4完整安装(二)">Previous article</a>
+        
+        
+            <a href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-4" class="btn" title="Archlinux 2014 + Xfce4完整安装(四)">Next article</a>
+        
+    </nav>-->
+
+<!-- /.pagination -->
+  </article>
+
+</div><!-- /#main -->
+
+
+
+<div class="footer-wrap">
+
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/linux">View all Linux articles</a>)</small></h4>
+    <ul>
+    
+      
+      
+        
+          
+        
+      
+      
+      <li><a href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-4" title="Archlinux 2014 + Xfce4完整安装(四)">Archlinux 2014 + Xfce4完整安装(四)</a></li>
+      
+    
+      
+      
+        
+          
+        
+      
+      
+      <li><a href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-2" title="Archlinux 2014 + Xfce4完整安装(二)">Archlinux 2014 + Xfce4完整安装(二)</a></li>
+      
+    
+      
+      
+        
+          
+        
+      
+      
+      <li><a href="http://localhost:4000/linux/archlinux-xfce4-complete-installation-1" title="Archlinux 2014 + Xfce4完整安装(一)">Archlinux 2014 + Xfce4完整安装(一)</a></li>
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Lu Jianmei. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://www.theevilgenius.tk/">HMFAYSAL V2</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="http://localhost:4000/assets/js/plugins/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script src="http://localhost:4000/assets/js/main.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-33406092-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc4458b325b81126e5d016a4a668a7838' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+	        
+
+</body>
+</html>

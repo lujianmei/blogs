@@ -1,8 +1,8 @@
 ---
-layout: post
+layout: post-client
 title: "A Post with Images"
 description: "Examples and code for displaying images in posts."
-category: articles
+category: client-side
 tags: [sample post, images, test]
 ---
 

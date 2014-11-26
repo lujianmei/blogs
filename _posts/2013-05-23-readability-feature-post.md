@@ -1,10 +1,10 @@
 ---
-layout: post
+layout: post-server
 title: "Post with Large Feature Image and Text"
 tagline: "A bunch of hipster ipsum for ya head."
 description: "Custom written post descriptions are the way to go... if you're not lazy."
-category: articles
-tags: [sample post, readability, test]
+category: server-side
+tags: [sample post, code, highlighting]
 image:
   feature: texture-feature-04.jpg
   credit: Texture Lovers
